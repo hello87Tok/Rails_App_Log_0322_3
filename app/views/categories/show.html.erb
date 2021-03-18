@@ -1,0 +1,13 @@
+<h1>Category: <%= @category.name %></h1>
+
+<div>
+  <div class="">
+    <span class="">
+      <%= link_to "Edit category name", edit_category_path(@category) %>
+    </span>
+  </div>
+  <%= will_paginate @category_articles %>
+</div>
+<div>
+  <%= will_paginate @category_articles %>
+</div>
