@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :show]
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.includes(:user).order("created_at DESC")
@@ -63,6 +64,13 @@ class ArticlesController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def require_same_user
+    if current_user != @article.user and !current_user.admin?
+      flash[:danger] = "You can only edit or delete your own article"
+      redirect_to root_path
+    end
   end
 
 end
