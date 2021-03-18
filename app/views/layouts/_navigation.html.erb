@@ -1,0 +1,19 @@
+<header class="">
+  <h1 class=""><a href="/">Wiki_logs</a></h1>
+    <% if user_signed_in? %>
+      <div class="">
+        <ul class="">
+          <li>
+            <%= link_to "My_Page", "/users/#{current_user.id}" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+        <%= link_to  "Post", "/articles/new", class: "post" %>
+      </div>
+    <% else %>
+      <div class="">
+        <%= link_to "Login", new_user_session_path, class: 'post' %>
+        <%= link_to "New_User", new_user_registration_path, class: 'post' %>
+      </div>
+    <% end %>
+</header>
