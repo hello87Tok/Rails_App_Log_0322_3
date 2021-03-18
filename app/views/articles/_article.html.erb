@@ -14,5 +14,9 @@
     </ul>
   </div>
   <p><%= article.title %></p>
-
+  <span class="">
+    <a href="/users/<%= article.user.id %>">
+      <span><%= article.user.nickname %></span>
+    </a>
+  </span>
 </div>
