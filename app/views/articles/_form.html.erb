@@ -1,4 +1,7 @@
 <%= form.text_field :image, placeholder: "Image Url" %>
 <%= form.text_area :title, placeholder: "title" , rows: "1" %>
 <%= form.text_area :description, placeholder: "description" , rows: "10" %>
+<%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+  <% cb.label(class: "") {cb.check_box(class: "checkbox") + cb.text } %>
+<% end %>
 <%= form.submit "SEND" %>

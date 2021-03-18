@@ -1,0 +1,12 @@
+<div class="">
+  <%= form_with(model: @category, local: true) do |form| %>
+    <h3>
+      Create new category
+    </h3>
+    <%= render partial: "form", locals: { form: form } %>
+  <% end %>
+</div>
+
+<div class="">
+  <%= link_to "return to articles listing", articles_path %>
+</div>

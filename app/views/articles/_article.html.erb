@@ -12,7 +12,9 @@
     <% end %>
     </ul>
   </div>
-  <p><%= link_to article.title, article_path(article.id), method: :get %></p>
+  <% if article.categories.any? %>
+    <p>Categories: <%= render article.categories %></p>
+  <% end %>
   <span class="">
     <a href="/users/<%= article.user.id %>">
       <span><%= article.user.nickname %></span>
