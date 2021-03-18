@@ -11,6 +11,10 @@
     </ul>
   </div>
   <%= simple_format(@article.title) %>
+  <% if @article.categories.any? %>
+    <p>Categories: <%= render @article.categories %></p>
+  <% end %>
+
   <span class="">
     <a href="/users/<%= @article.user.id %>">
       <span><%= @article.user.nickname %></span>

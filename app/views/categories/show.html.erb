@@ -2,12 +2,11 @@
 
 <div>
   <div class="">
-    <span class="">
+    <li>
       <%= link_to "Edit category name", edit_category_path(@category) %>
-    </span>
+    </li>
+    <li>
+      <%= link_to 'Delete Category', category_path(@category.id), method: :delete %>
+    </li>
   </div>
-  <%= will_paginate @category_articles %>
-</div>
-<div>
-  <%= will_paginate @category_articles %>
 </div>

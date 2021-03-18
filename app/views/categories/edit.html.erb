@@ -1,0 +1,11 @@
+<div class="">
+  <div class="">
+    <%= form_with(model: @category, local: true) do |form| %>
+      <h3>
+        Edit category name
+      </h3>
+      <%= render partial: "form", locals: { form: form } %>
+    <% end %>
+  </div>
+</div>
+

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :categories, except: [:destroy]
+  resources :categories
 
   resources :users, only: :show
 end
