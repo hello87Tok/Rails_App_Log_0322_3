@@ -3,9 +3,6 @@
     <span><%= image_tag '' %></span>
     <ul class="">
       <li>
-        <%= link_to 'Detail', article_path(article.id), method: :get %>
-      </li>
-      <li>
         <%= link_to 'Edit', edit_article_path(article.id), method: :get %>
       </li>
       <li>
@@ -13,7 +10,7 @@
       </li>
     </ul>
   </div>
-  <p><%= article.title %></p>
+  <p><%= link_to article.title, article_path(article.id), method: :get %></p>
   <span class="">
     <a href="/users/<%= article.user.id %>">
       <span><%= article.user.nickname %></span>
