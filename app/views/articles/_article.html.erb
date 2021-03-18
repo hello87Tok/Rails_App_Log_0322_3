@@ -1,0 +1,18 @@
+<div class="" style="background-image: url(<%= article.image %>);">
+  <div class="">
+    <span><%= image_tag '' %></span>
+    <ul class="">
+      <li>
+        <%= link_to 'Detail', article_path(article.id), method: :get %>
+      </li>
+      <li>
+        <%= link_to 'Edit', edit_article_path(article.id), method: :get %>
+      </li>
+      <li>
+        <%= link_to 'Delete', article_path(article.id), method: :delete %>
+      </li>
+    </ul>
+  </div>
+  <p><%= article.title %></p>
+
+</div>
