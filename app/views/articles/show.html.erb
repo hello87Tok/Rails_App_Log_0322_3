@@ -12,7 +12,12 @@
       <% end %>
     </ul>
   </div>
+  <%= link_to 'Twitter', "http://twitter.com/share?url=#{request.url}&text=#{@article.description}&hashtags=wiki_log", title: 'Twitter', target: '_blank' %>
+  <%#= link_to 'Twitter', "http://twitter.com/share?url=https://twitter.com/home&text=#{@article.description}&hashtags=wiki_log", title: 'Twitter', target: '_blank' %>
+
   <%= simple_format(@article.title) %>
+  <%= simple_format(@article.title) %>
+
   <% if @article.categories.any? %>
     <p>Categories: <%= render @article.categories %></p>
   <% end %>
