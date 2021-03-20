@@ -2,7 +2,7 @@
 
 <div>
   <div class="">
-    <% if current_user.admin? %>
+    <% if user_signed_in? && current_user.admin? %>
       <li>
         <%= link_to "Edit category name", edit_category_path(@category) %>
       </li>
