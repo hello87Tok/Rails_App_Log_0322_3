@@ -1,5 +1,39 @@
+<nav class="flex items-center justify-between flex-wrap bg-teal p-6">
+  <div class="flex items-center flex-no-shrink text-blue-500 mr-6">
+    <span class="fab fa-accusoft text-lg"></span>
+    <span class="font-semibold text-xl tracking-tight">Tailwind CSS</span>
+  </div>
+
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div class="text-sm lg:flex-grow">
+      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
+        Articles
+      </a>
+      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
+        Users
+      </a>
+      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
+        Blog
+      </a>
+      <div class="relative inline-flex">
+        <select class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-blue-400 mr-4">
+          <option>Choose a color</option>
+          <% Category.all.each do |category| %>
+            <option><%= link_to category.name, category_path(category) %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <div>
+      <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-blue-400 border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Download</a>
+    </div>
+    <div>
+      <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-blue-400 border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Download</a>
+    </div>
+  </div>
+</nav>
 <header class="">
-  <h1 class=""><a href="/">Wiki_logs</a></h1>
+  <h1 class="text-lg text-red-500 bg-green-700 text-center font-semibold"><a href="/">Wiki_logs</a></h1>
     <% if user_signed_in? %>
       <div class="">
         <span>
@@ -14,8 +48,12 @@
       </div>
     <% else %>
       <div class="">
+      <button class="bg-indigo-700 font-semibold text-white py-2 px-4 rounded">
         <%= link_to "Login", new_user_session_path, class: 'post' %>
+      </button>
+      <button class="bg-red-700 font-semibold text-white py-2 px-4 rounded">
         <%= link_to "New_User", new_user_registration_path, class: 'post' %>
+      </button>
       </div>
     <% end %>
 </header>
