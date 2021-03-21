@@ -1,7 +1,8 @@
-
 <div class="field">
   <p class="title is-1 is-spaced">Listing all categories</p>
+
   <% @categories.each do |category| %>
-    <%= render partial: "category", locals: { category: category } %>
+  <li><%= render partial: "category", locals: { category: category } %></li>
   <% end %>
+
 </div>
