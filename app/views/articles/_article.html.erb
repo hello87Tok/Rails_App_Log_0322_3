@@ -2,7 +2,9 @@
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src="<%= article.image %>" alt="Placeholder image">
+      <a href="articles/<%=article.id%>">
+        <img src="<%= article.image %>" alt="Placeholder image">
+      </a>
     </figure>
     <p id="author"><%= link_to article.title, article_path(article.id), method: :get %></p>
     <% if article.categories.any? %>
