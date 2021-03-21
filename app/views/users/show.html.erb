@@ -1,7 +1,7 @@
-<div class="">
-  <p><%= @nickname %>'s Post</p>
+  <div class="field">
+    <p class="title is-1 is-spaced"><%= @nickname %>'s Post</p>
+  </div>
+
   <% @articles.each do |article| %>
-  <%= render partial: "articles/article", locals: { article: article } %>
+    <%= render partial: "articles/article", locals: { article: article } %>
   <% end %>
-  <%= link_to "Edit your profile", edit_user_registration_path(current_user) %>
-</div>
