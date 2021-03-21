@@ -64,15 +64,15 @@
 <article class="media">
   <div class="media-content">
     <% if current_user %>
-      <%= form_with(model: [@article, @comment], local: true) do |form| %>
-      <div class="field">
-        <div class="control">
-          <%= form.text_area :text, placeholder: "comment", rows: "2", class: "textarea"%>
-        </div>
-        <div class="control">
-          <%= form.submit "SEND" ,class: "button is-info "%>
-        </div>
+    <%= form_with(model: [@article, @comment], local: true) do |form| %>
+    <div class="field">
+      <div class="control">
+        <%= form.text_area :text, placeholder: "comment", rows: "2", class: "textarea"%>
       </div>
+      <div class="control">
+        <%= form.submit "SEND" ,class: "button is-info "%>
+      </div>
+    </div>
     <% end %>
     <% else %>
     <div>
@@ -83,16 +83,48 @@
     </div>
     <% end %>
 
-    <div class="">
+    <div class="field">
       <% if @comments %>
-      <% @comments.each do |comment| %>
-      <p>
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-        <%= comment.text %>
-      </p>
-      <% end %>
+        <% @comments.each do |comment| %>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+                <small><time><%= time_ago_in_words(@article.updated_at) %> ago</time></small>
+                <br>
+                <%= comment.text %>
+              </p>
+            </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                </a>
+                <a class="level-item"
+                  href="http://twitter.com/share?url=<%=request.url%>&text=<%=comment.text%>&hashtags=wiki_log"
+                  target="_blank">
+                  <span class="icon is-small">
+                    <i class="fas fa-retweet"></i></span>
+                </a>
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+          <div class="media-right">
+            <button class="delete"></button>
+          </div>
+        </article>
+        <% end %>
       <% end %>
     </div>
-
+    
   </div>
 </article>
